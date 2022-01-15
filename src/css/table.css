@@ -1,0 +1,53 @@
+.table{
+    position: relative;
+    width: 28%;
+    margin-right: 6%;
+    display: flex;
+    flex-direction: column;
+}
+
+.table__container{
+    margin-bottom: -2.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.table__link{
+    width: 50%;
+    text-align: center;
+}
+
+.table__link:hover svg{
+    fill: #170c1b;
+    stroke: #170c1b;
+}
+
+.table__globe-svg{
+    stroke: #000;
+    fill: #000;
+    width: 80%;
+}
+
+.table__github-svg{
+    fill: #000;
+    width: 50%;
+    
+}
+
+.table__github-svg_animated{
+    animation: github 0.7s ease-in-out 1;
+}
+
+@keyframes github {
+    0%{transform: translate(0,0)}
+    50%{transform: translate(165%, -80%); opacity: 1;}
+    70%{opacity: 0;transform: translate(130%, -30%);}
+    85%{transform: translate(0,0); opacity: 0;}
+    100%{opacity: 1;}
+}
+
+.table__globe-svg_no-fill{
+    fill: none;
+}

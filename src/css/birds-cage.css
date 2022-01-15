@@ -1,0 +1,55 @@
+.birds-cage{
+    position: relative;
+    width: 18%;
+    margin-bottom: -6px;
+    transform-origin: 70% bottom;
+}
+
+.birds-cage_animated{
+    animation: birdscage 3s ease-in-out 1;
+}
+
+@keyframes birdscage {
+    15%{transform: rotate(5deg);transform-origin: 70% bottom;}
+    30%{transform: rotate(-4deg);transform-origin: 30% bottom;}
+    45%{transform: rotate(3deg);transform-origin: 70% bottom;}
+    60%{transform: rotate(-2deg);transform-origin: 30% bottom;}
+    65%{transform: rotate(1deg);transform-origin: 70% bottom;}
+    80%{transform: rotate(0deg);}
+}
+
+.birds-cage__twitter{
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25%;
+    transform-origin: center center;
+    animation: twitter 20s infinite;
+}
+
+@keyframes twitter {
+    0%{transform: translateX(-50%);}
+    45%{transform: translateX(-20%);}
+    50%{transform: translateX(-20%) scaleX(-1);}
+    65%{transform: translateX(-80%) scaleX(-1);}
+    70%{transform: translateX(-80%) scaleX(1);}
+    100%{transform: translateX(-50%);}
+}
+
+.birds-cage__svg{
+    position: relative;
+    z-index: 1;
+    max-height: 100%;
+    stroke: #000;
+    fill: #000;
+}
+
+.birds-cage__link:hover .birds-cage__svg{
+    fill: #170c1b;
+    stroke: #170c1b;
+}
+
+.birds-cage__svg_no-fill{
+    fill: none;
+}

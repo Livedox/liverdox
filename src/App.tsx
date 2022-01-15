@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./css/index.css";
+import "./css/lights.css";
+import Intro from "./components/Intro";
+import AboutMe from "./components/AboutMe";
+import Contact from "./components/Contact";
+import MyProject from "./components/MyProject";
+import Lights from "./components/Lights";
+import { Helmet } from "react-helmet";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+        <Helmet>
+            <title>Liverdox - сайт портфолио!</title>
+        </Helmet>
+        <div className="main">
+            <Intro />
+            <Lights />
+            <AboutMe />
+            <MyProject />
+            <Contact />
+        </div>
+        </>  
+    );
 }
 
 export default App;

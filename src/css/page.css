@@ -1,0 +1,110 @@
+.my-project__main-page, .page{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.page{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page__title{
+    position: relative;
+    text-align: center;
+    font-size: 4rem;
+    color: #ecf0f1;
+    text-shadow: 0 0 10px #ecf0f1;
+    margin: 3% 0;
+    z-index: 2;
+}
+
+.page__paint-container{
+    position: relative;
+    min-width: 50vw;
+    width: 55%;
+}
+
+.page__paint{
+    position: relative;
+    display: flex;
+    min-height: 30vh;
+    height: 28vw;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border: 0.6rem solid black;
+    box-shadow: 0 0 30px 0 black;
+}
+
+.page__img-container{
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page__img-link{
+    user-select: none;
+    height: 100%;
+}
+
+.page__img{
+    min-height: 100%;
+    width: 100%;
+}
+
+.page__paint-title{
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #bdc3c7;
+}
+
+.page__plant-container{
+    position: absolute;
+    bottom: 0;
+    width: 12%;
+    min-width: 45px;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    filter: drop-shadow(0 0 10px rgb(0 0 0 / 1));
+}
+
+.page__plant_left{
+    left: 6%;
+}
+
+.page__plant_right{
+    right: 6%;
+}
+
+.page__plant-without-pot{
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    transform-origin: center 65%;
+    transform: scale(1);
+    animation: grow 600s ease-in 1 forwards;
+}
+@keyframes grow {
+    0%{transform: scale(1);}
+    100%{transform: scale(2.3);}
+}
+
+@media (orientation: portrait) {
+    .my-project{
+        min-height: initial;
+    }
+    .my-project__main-page, .page{
+        min-height: initial;
+    }
+}

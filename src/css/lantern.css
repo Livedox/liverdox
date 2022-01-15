@@ -1,0 +1,68 @@
+.lantern{
+    position: absolute;
+    height: 35%;
+    min-width: 5%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    transform-origin: center top;
+    transform: rotate(0);  
+}
+
+.lantern_left{
+    top: 15%;
+    right: 90%;
+    animation: sway 12s linear infinite;
+}
+
+.lantern_right{
+    top: 20%;
+    left: 50%;
+    animation: sway 12s 4s linear infinite;
+}
+
+.lantern__rope{
+    position: absolute;
+    top: 0;
+    width: 4px;
+    height: 70%;
+    background-color: black;
+}
+
+.lantern__svg{
+    position: absolute;
+    bottom: 0;
+    height: 30%;
+}
+
+.lantern__light{
+    position: absolute;
+    bottom: 10%;
+    width: 2px;
+    height: 2px;
+    background-color: #e74c3c;
+    box-shadow: 0 0 60px 45px #e74c3c;
+    border-radius: 50%;
+}
+
+@keyframes sway {
+    0%{transform: rotate(0deg)}
+    25%{transform: rotate(2deg)}
+    75%{transform: rotate(-2deg)}
+    100%{transform: rotate(0deg)}
+}
+
+@media (max-width: 430px) {   
+    .lantern_right, .lantern_left{
+        top: 0;
+    }
+    .lantern_left{
+        right: initial;
+        left: 10%;
+    }
+    
+    .lantern_right{
+        left: initial;
+        right: 10%;
+    }
+}

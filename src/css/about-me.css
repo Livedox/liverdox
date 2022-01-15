@@ -1,0 +1,126 @@
+.about-me{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 120vh;
+    z-index: 2;
+    background-color: #2c3e50;
+    padding: 20px;
+    box-shadow: 0 0 20px 0 #ecf0f188;
+    overflow: hidden;
+}
+
+.about-me__container{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-me__img-block{
+    margin-right: 20px;
+}
+.about-me__img{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 40%;
+    min-height: 90%;
+    max-width: 100%;
+    opacity: 10%;
+}
+.about-me__inner{
+    position: relative;
+    z-index: 3;
+    display: flex;
+    margin: 2.5rem 3.75rem;
+    height: 70%;
+}
+.about-me__inf-container{
+    text-align: left;
+    max-width: 60%;
+}
+.about-me__title{
+    font-size: 4rem;
+    color: #ecf0f1;
+    text-shadow: 0 0 10px #ecf0f1;
+}
+.about-me__text{
+    color: #bdc3c7;
+    font-size: 2rem;
+}
+
+.about-me__line{
+    position: absolute;
+    height: 20px;
+    background-color: #8e44ad;
+    opacity: 40%;
+    transform-origin: left top;
+    width: 100%;
+    transform: translateX(10%);
+}
+
+.about-me__line1{
+    top: -100px;
+    left: -20px;
+    transform: rotate(25deg);
+    width: 82%;
+}
+
+.about-me__line2{
+    top: -100px;
+    left: 30%;
+    transform: rotate(120deg);
+}
+
+.about-me__line3{
+    top: -100px;
+    left: 85%;
+    transform: rotate(110deg);
+}
+
+.about-me__tree-container{
+    position: absolute;
+    right: 0;
+    height: 140%;
+    min-width: 100%;
+}
+
+.about-me__tree{
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 15px rgb(0 0 0 / 1));
+}
+
+@media (orientation: portrait) {
+    .about-me{
+        height: initial;
+    }
+    .about-me__container{
+        height: initial;
+    }
+}
+
+@media (max-width: 1200px) {
+    .about-me__inner{
+        justify-content: center;
+    }
+    .about-me__inf-container{
+        text-align: center;
+        max-width: initial;
+    }
+}
+
+@media (max-width: 780px) {
+    .about-me__inner{
+        margin: 2rem 0.25rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .about-me__tree{
+        right: 30%;
+    }
+}
