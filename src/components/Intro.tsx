@@ -23,7 +23,6 @@ class WaterDrop {
 }
 
 function Intro() {
-    console.log(2);
     const canvRef = useRef<HTMLCanvasElement>(null!);
     useEffect(() => {
         let isStop = false;
@@ -35,6 +34,7 @@ function Intro() {
         }     
 
         const canv = canvRef.current;
+        canv.width = Math.floor(window.screen.availWidth / 2);
         const ctx = canv.getContext("2d")!;
 
         const colors = ["#8e44ad", "#64317a", "#9b59b6", "#6b3a80"];

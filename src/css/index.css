@@ -152,6 +152,13 @@ body{
     transform: rotate(80deg);
 }
 
+@media (orientation: portrait) {
+    .introductory-screen__container-planet{
+        top: 10%;
+        height: 80%;
+    }
+}
+
 @media (max-width: 750px) {
     html{
         font-size: 14px;

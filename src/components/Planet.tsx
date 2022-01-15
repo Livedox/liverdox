@@ -38,7 +38,7 @@ function Planet() {
             <pointLight position={[10, 10, 10]} color={"#9b59b6"} intensity={0.3} />
             <pointLight position={[-10, -10, -10]} color={"#e74c3c"} intensity={0.3} />
             <OrbitControls minDistance={5} maxDistance={5} enableZoom={false} />
-            <primitive object={obj} scale={3} />
+            <primitive object={obj} scale={2.8} />
         </mesh>
     );
 }
