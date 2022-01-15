@@ -40,9 +40,13 @@ function Intro() {
         const colors = ["#8e44ad", "#64317a", "#9b59b6", "#6b3a80"];
         const rain:WaterDrop[] = [];
         const SPEED = 9;
-        for(let i = 0; i < 80; ++i) {
+        let rainCount = 80;
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+            rainCount = 30;
+        }
+        for(let i = 0; i < rainCount; ++i) {
             rain.push(new WaterDrop(
-                getRandomInt(0, canv.width),
+                getRandomInt(1, canv.width),
                 getRandomInt(0, canv.height)
             ));
         }
