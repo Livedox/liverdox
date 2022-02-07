@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
 }
 
 .page__title{
@@ -106,5 +107,11 @@
     }
     .my-project__main-page, .page{
         min-height: initial;
+    }
+    .page__paint-container{
+        width: 80%;
+    } 
+    .page__paint{
+        min-height: 50vw;
     }
 }
