@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import Planet from "./Planet";
 import getRandomInt from "../getRandomInt";
+import { tokenToString } from "typescript";
 
 class WaterDrop {
     readonly x:number;
@@ -24,14 +25,20 @@ class WaterDrop {
 
 function Intro() {
     const canvRef = useRef<HTMLCanvasElement>(null!);
+    let isAudio = false;
+
+    let isStop = false;
+    let audioTimeout: NodeJS.Timeout;
+    let rainAudio: HTMLAudioElement;
+    function audio() {
+        rainAudio = new Audio("rain.mp3");
+        if(!isAudio) rainAudio.muted = true;
+        rainAudio.play();
+        audioTimeout = setTimeout(audio, 7700);
+    }
+    audio();
     useEffect(() => {
-        let isStop = false;
-        let audioTimeout = setTimeout(audio);
-        function audio() {
-            const rainAudio = new Audio("rain.mp3");
-            rainAudio.play();
-            audioTimeout = setTimeout(audio, 7600);
-        }     
+        
 
         const canv = canvRef.current;
         canv.width = Math.floor(window.screen.availWidth / 2);
@@ -83,17 +90,17 @@ function Intro() {
         let counter= 0;
         let lightningTimeout = setTimeout(lightningInterval);
         function lightningInterval() {
-            const lightning = document.querySelector<HTMLElement>(".introductory-screen__lightning")!;
-            const strike = document.querySelector(".introductory-screen__lightning-strike")!;
+            const lightning = document.querySelector<HTMLElement>(".intro-screen__lightning")!;
+            const strike = document.querySelector(".intro-screen__lightning-strike")!;
             if (++counter%2 == 1) {
                 lightning.style.left = getRandomInt(0, 90) + "%";
                 setTimeout(() => {
-                    thunder.play();
+                    if(isAudio) thunder.play();
                 }, 500 + 1000*Math.random());
             }
             if(!isStop) {
-                lightning.classList.toggle("introductory-screen__lightning_active");
-                strike.classList.toggle("introductory-screen__lightning-strike_active");
+                lightning.classList.toggle("intro-screen__lightning_active");
+                strike.classList.toggle("intro-screen__lightning-strike_active");
             }
             lightningTimeout = setTimeout(lightningInterval, 7000 + 2000*Math.random());
         };
@@ -101,18 +108,18 @@ function Intro() {
         function stopAnimation() {
             isStop = true;
             window.cancelAnimationFrame(rainAnim);
-            document.querySelector(".introductory-screen__rain")!
+            document.querySelector(".intro-screen__rain")!
                 .classList.add("display-none");
-            document.querySelector(".introductory-screen__container-planet")!
+            document.querySelector(".intro-screen__container-planet")!
                 .classList.add("display-none");
         }
 
         function runAnimation() {
             isStop = false;
             rainAnim = window.requestAnimationFrame(anim);
-            document.querySelector(".introductory-screen__rain")!
+            document.querySelector(".intro-screen__rain")!
                 .classList.remove("display-none");
-            document.querySelector(".introductory-screen__container-planet")!
+            document.querySelector(".intro-screen__container-planet")!
                 .classList.remove("display-none");
         }
 
@@ -127,26 +134,34 @@ function Intro() {
         window.addEventListener("scroll", check);
         window.addEventListener("resize", check);
 
+        
+
         return () => {
             clearTimeout(audioTimeout);
             clearTimeout(lightningTimeout);
             window.cancelAnimationFrame(rainAnim);
         }
     });
+    function toggleAudio() {
+        rainAudio.muted = isAudio;
+        isAudio = !isAudio;
+        document.querySelector(".intro-screen__note")!.classList.toggle("active");
+    }
     return(
-        <div className="introductory-screen">
-            <canvas className="introductory-screen__rain" width="1000" height="500" ref={canvRef} />
-            <img src="./lightning.svg" className="introductory-screen__lightning" alt="" />
-            <div className="introductory-screen__lightning-strike"></div>
-            <div className="introductory-screen__container-planet">
+        <div className="intro-screen">
+            <canvas className="intro-screen__rain" width="1000" height="500" ref={canvRef} />
+            <img src="./lightning.svg" className="intro-screen__lightning" alt="" />
+            <div className="intro-screen__lightning-strike"></div>
+            <div className="intro-screen__note active" onClick={toggleAudio}>♪</div>
+            <div className="intro-screen__container-planet">
                 <Canvas>
                     <Planet />
                 </Canvas>
             </div>
             
-            <div className="introductory-screen__hello-block">
-                <div className="introductory-screen__container-hello-block">
-                    <h1 className="introductory-screen__title">Liverdox</h1>
+            <div className="intro-screen__hello-block">
+                <div className="intro-screen__container-hello-block">
+                    <h1 className="intro-screen__title">Liverdox</h1>
                 </div>
             </div>
         </div>

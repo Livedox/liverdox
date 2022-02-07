@@ -35,7 +35,7 @@ body{
     visibility: hidden;
 }
 
-.introductory-screen{
+.intro-screen{
     width: 100vw;
     height: 100vh;
     background-color: #34495e;
@@ -44,23 +44,50 @@ body{
     top: 0;
 }
 
-.introductory-screen__rain{
+.intro-screen__rain{
     width: 99%;
     height: 100%;
     position: absolute;
 }
 
-.introductory-screen__lightning{
+.intro-screen__lightning{
     height: 100%;
     min-height: 100%;
     position: absolute;
     opacity: 0;
 }
-.introductory-screen__lightning_active{
+.intro-screen__lightning_active{
     animation: lightning 0.8s ease-in-out;
 }
 
-.introductory-screen__lightning-strike{
+.intro-screen__note{
+    position: absolute;
+    top: 13px;
+    right: 40px;
+    font-size: 50px;
+    user-select: none;
+    cursor: pointer;
+    z-index: 10;
+    text-shadow: 0 0 3px white;
+}
+
+.intro-screen__note::after{
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    width: 3px;
+    height: 0px;
+    transition: 0.3s;
+    background-color: #c0392b;
+    transform: rotate(-40deg);
+}
+
+.intro-screen__note.active::after{
+    height: 37px;
+}
+
+.intro-screen__lightning-strike{
     width: 100%;
     height: 100%;
     position: absolute;
@@ -68,7 +95,7 @@ body{
     display: none;
     opacity: 0;
 }
-.introductory-screen__lightning-strike_active{
+.intro-screen__lightning-strike_active{
     display: block;
     animation: lightning 0.6s ease-in-out;
 }
@@ -81,7 +108,7 @@ body{
     70% {opacity: 0;z-index: 0;}
 }
 
-.introductory-screen__hello-block{
+.intro-screen__hello-block{
     position: absolute;
     left: 0;
     top: 0;
@@ -92,24 +119,24 @@ body{
     justify-content: center;
 }
 
-.introductory-screen__logo{
+.intro-screen__logo{
     width: 200px;
     height: 200px;
 }
 
-.introductory-screen__title{
+.intro-screen__title{
     font-size: 7rem;
     color: #ecf0f1;
     text-shadow: 0 0 10px #ecf0f1;
 }
-.introductory-screen__container-hello-block{
+.intro-screen__container-hello-block{
     position: relative;
     display: flex;
     align-items: center;
     z-index: 1;
 }
 
-.introductory-screen__container-planet{
+.intro-screen__container-planet{
     width: 100%;
     height: 100%;
     position: relative;
@@ -153,7 +180,7 @@ body{
 }
 
 @media (orientation: portrait) {
-    .introductory-screen__container-planet{
+    .intro-screen__container-planet{
         top: 10%;
         height: 80%;
     }
