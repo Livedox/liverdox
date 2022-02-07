@@ -37,7 +37,11 @@
     bottom: 0;
     transform: rotate(60deg);
     width: 4rem;
-    animation: telegram 12s 70s infinite;
+    
+}
+
+.contact__telegram.active{
+    animation: telegram 12s 1;
 }
 
 @keyframes telegram {

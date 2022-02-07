@@ -1,4 +1,16 @@
+import { useEffect } from "react";
+
 function Telegram() {
+    useEffect(() => {
+        let interval = setInterval(() => {
+            document.querySelector(".contact__telegram")!.classList.toggle("active");
+        }, 35000);
+
+        return () => {
+            clearInterval(interval);
+        }
+    });
+
     return(
         <a href="https://t.me/liverdox" target="_blank">
             <svg className="contact__telegram" viewBox="0 0 1000 1000">
