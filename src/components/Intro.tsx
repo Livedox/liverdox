@@ -38,8 +38,6 @@ function Intro() {
     }
     audio();
     useEffect(() => {
-        
-
         const canv = canvRef.current;
         canv.width = Math.floor(window.screen.availWidth / 2);
         const ctx = canv.getContext("2d")!;
