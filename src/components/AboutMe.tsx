@@ -14,7 +14,8 @@ function AboutMe() {
                     <div className="about-me__inf-container">
                         <h2 className="about-me__title">Обо мне</h2>
                         <p className="about-me__text">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima veniam esse aspernatur iste in culpa ipsa accusamus architecto beatae dolorum enim vel ab labore error maiores animi atque, vitae provident!
+                            Занимаюсь разработкой на React, NextJS, TypeScript, Sass.
+                            Сейчас увлекаюсь C++ и Rust.
                         </p>
                     </div>
                 </div>
