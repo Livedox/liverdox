@@ -102,7 +102,7 @@ function Intro() {
                 lightning.classList.toggle("intro-screen__lightning_active");
                 strike.classList.toggle("intro-screen__lightning-strike_active");
             }
-            lightningTimeout = setTimeout(lightningInterval, 7000 + 2000*Math.random());
+            lightningTimeout = setTimeout(lightningInterval, 3000 + 2000*Math.random());
         };
 
         function stopAnimation() {
